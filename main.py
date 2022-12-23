@@ -26,12 +26,12 @@ def index():
 def get_picture():
     picture_url = ''
     if request.method == "POST":
-        secret_response = request.form['g-recaptcha-response']
-        verify_response = requests.post(url=f'{VERIFY_URL}?secret={SECRET_KEY_CAPTCHA}&response={secret_response}').json()
-        # print(verify_response['success'], verify_response['score'])
-        if not verify_response['success'] or verify_response['score'] < 0.5:
-            return render_template('get-picture.html', title='Получить картинку', menu=options, picture_url=picture_url,
-                                   site_key=SITE_KEY_CAPTCHA)
+        # Здесь проверка капчей на человека
+        # secret_response = request.form['g-recaptcha-response']
+        # verify_response = requests.post(url=f'{VERIFY_URL}?secret={SECRET_KEY_CAPTCHA}&response={secret_response}').json()
+        # if not verify_response['success'] or verify_response['score'] < 0.5:
+        #     return render_template('get-picture.html', title='Получить картинку', menu=options, picture_url=picture_url,
+        #                            site_key=SITE_KEY_CAPTCHA)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
         response = requests.get(f'https://unsplash.com/napi/search/photos?query=cat&per_page=20&page=1&xp',
