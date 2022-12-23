@@ -9,9 +9,9 @@ git clone https://github.com/ferokuk/Flask-get-cat.git
 python -m venv venv
 
 ## Activate venv
-In Windows venv\scripts\activate
-In Ubuntu venv/bin/activate
-In MacOS source venv/bin/activate
+In Windows venv\scripts\activate 
+In Ubuntu venv/bin/activate 
+In MacOS source venv/bin/activate 
 
 ## Exexute command
 pip install -r requirements.txt
