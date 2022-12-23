@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="m-lg-3">Оставьте отзыв</h1>
+{{super()}}
+{% for cat, msg in get_flashed_messages(True) %}
+  <div class="mb-3 fw-bold m-md-3 bg-{{cat}} w-25" >{{msg}}</div>
+{% endfor %}
+<form action="/feedback" class="mt-5" method="post">
+  <div class="mb-3  m-md-3">
+    <label for="floatingInputValue">Имя</label>
+    <input type="text" class="form-control w-25" id="floatingInputValue" name="username" placeholder="bebra">
+  </div>
+  <div class="mb-3 m-md-3">
+    <label for="floatingInputValue">Почта</label>
+    <input type="email" class="form-control w-25" id="floatingInputValue" name="email" placeholder="bebra@example.com" required>
+  </div>
+  <div class="form-floating mb-3 m-md-3 w-25">
+    <textarea class="form-control" placeholder="Хотелось бы..." name="text" id="floatingTextarea" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary  m-md-3">Отправить</button>
+</form>
+{% endblock %}
